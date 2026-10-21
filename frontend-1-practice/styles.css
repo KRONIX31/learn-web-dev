@@ -1,13 +1,581 @@
-/* Стили страницы.
-   Пишите здесь. */
+:root {
+    --bg-color: #f9f9f9;
+    --text-muted: #606666;
+    --border-color: #EBEBEB;
+    --border-color-darker: #CCCCCC;
+    --primary-color: #333333;
+    --white: #fff;
+    --black: #000
+}
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  min-height: 100vh;
-  font-family: sans-serif;
+    font-family: 'Arimo', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+button {
+    font-family: inherit;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+/* --- Шапка --- */
+.header {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #7F7F7F;
+    letter-spacing: 1px;
+}
+
+.nav__list {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+.nav__link:hover {
+    color: var(--black);
+}
+
+/* --- Прогресс-бар --- */
+.progress-section {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    padding: 25px 0;
+    margin-bottom: 40px;
+}
+
+.progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.progress::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--border-color);
+    z-index: 1;
+}
+.progress::after{
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 0;
+    height: 2px;
+    width: 50%;
+    background-color: var(--primary-color);
+    z-index: 1;
+}
+
+.progress__step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 2;
+    background-color: var(--white);
+    padding-right: 15px;
+}
+
+.progress__step:last-child {
+    padding-right: 0;
+}
+
+.progress__circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.progress__step.completed .progress__circle,
+.progress__step.active .progress__circle {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.progress__text {
+    font-size: 14px;
+    color: var(--text-muted);
+    /* color: var(--primary-color); */
+    font-weight: 500;
+}
+.progress__step.completed .progress__text, .progress__step.active .progress__text {
+    color: var(--primary-color);
+}
+.progress__step.active .progress__text {
+    font-weight: 600;
+}
+
+/* --- Основной контент --- */
+.main__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.page-title h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.page-subtitle {
+    color: var(--text-muted);
+    font-size: 16px;
+}
+
+/* Карточка услуги */
+.service-card {
+    background-color: var(--primary-color);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    border-radius: 12px;
+    gap: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    min-width: 400px;
+}
+
+.radio-input {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    background: var(--bg-color);
+    border-radius: 4px;
+    transition: 0.3s;
+}
+.radio-input:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    height: 65%;
+    border-radius: 4px;
+    background: var(--primary-color);
+}
+
+.service-card__info {
+    flex-grow: 1;
+}
+
+.service-card__title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.service-card__duration {
+    font-size: 13px;
+    color: #A0A5A5;
+}
+
+.service-card__price {
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Сетка контента */
+.booking-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 32px;
+}
+
+/* Календарь */
+.calendar {
+    background-color: var(--white);
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.calendar__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar__month {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.calendar__nav {
+    display: flex;
+    gap: 10px;
+}
+
+.calendar__arrow {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background-color: var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--black);
+    transition: filter 0.2s;
+}
+
+.calendar__arrow:hover {
+    filter: contrast(0.9);
+}
+
+.calendar__weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 15px;
+}
+
+.calendar__days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    justify-items: center;
+}
+
+.calendar__day {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid var(--border-color-darker);
+    transition: all 0.2s;
+}
+
+.calendar__day:hover:not(.past-day) {
+    border-color: var(--black);
+}
+
+.calendar__day.past-day {
+    opacity: 0.5;
+    background-color: var(--border-color);
+    cursor: default;
+}
+
+.calendar__day.today {
+    border-color: var(--primary-color);
+    border-width: 2px;
+}
+
+.calendar__day.selected {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+/* Время */
+.time-slots {
+    background-color: var(--white);
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.time-slots__header {
+    margin-bottom: 20px;
+}
+
+.time-slots__title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.time-slots__subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.time-slots__grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 12px;
+    justify-items: start;
+}
+
+.time-btn {
+    padding: 12px;
+    border: 1px solid var(--border-color-darker);
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--black);
+    cursor: pointer;
+    background-color: var(--white);
+    transition: all 0.2s;
+    line-height: 1.2;
+    width: 100%;
+}
+
+.time-btn:hover:not(.busy):not(.selected) {
+    border-color: var(--black);
+}
+
+.time-btn.busy {
+    opacity: 0.5;
+    background-color: var(--border-color);
+    border-color: transparent;
+    cursor: not-allowed;
+}
+
+.busy-text {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.time-btn.selected {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+.time-slots__grid > *:nth-child(3n-1):nth-last-of-type(1) {
+    grid-column: span 2;
+}
+
+.time-slots__grid > *:nth-child(3n-2):nth-last-of-type(1) {
+    grid-column: span 3;
+}
+
+
+.summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+.summary__title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4%;
+    letter-spacing: 1px;
+}
+
+.summary__datetime {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.summary__details {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.summary__actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.btn-outline {
+    border: 1px solid var(--border-color);
+    background-color: var(--white);
+    color: var(--black);
+}
+.btn-outline img {
+    filter: invert(100%);
+    transform: scaleX(-1);
+}
+
+.btn-outline:hover {
+    border-color: var(--primary-color);
+    gap: 16px;
+    padding: 14px 28px 14px 20px;
+}
+
+.btn-primary {
+    background-color: var(--black);
+    color: var(--white);
+    border: 1px solid var(--black);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color);
+    gap: 16px;
+    padding: 14px 20px 14px 28px;
+}
+
+
+/* --- Подвал --- */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 64px 48px;
+    margin-top: 64px;
+}
+
+.footer__inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 48px;
+}
+
+.footer__logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #7F7F7F;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.footer__desc {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+.footer__title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+}
+
+.footer__list {
+    list-style: none;
+}
+
+.footer__list li {
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer__link {
+    color: #aaa;
+    text-decoration: underline;
+    transition: color 0.3s;
+    font-weight: 700;
+}
+
+.footer__link:hover {
+    color: #fff;
+}
+
+.footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #444444;
+    padding-top: 24px;
+    color: #808585;
+    font-size: 13px;
+}
+
+
+
+@media (max-width: 900px) {
+    .booking-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .main__top {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .service-card {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .summary {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .footer__inner {
+        grid-template-columns: 1fr;
+    }
+    
+    .progress__text {
+        display: none;
+    }
 }

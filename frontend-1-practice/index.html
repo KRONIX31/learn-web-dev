@@ -5,22 +5,206 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Выбор даты и времени</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <!--
-      ЗАДАНИЕ
-      ========
-      Сверстать страницу выбора даты и времени по своему макету.
-
-      Пока это только вёрстка. Никакого JavaScript — ни кликов,
-      ни переходов, ни выбора дня. Всё статично.
-
-      Стили пишите в styles.css. Разметку — здесь.
-    -->
-
     <div class="page">
-      <!-- Начните отсюда. Разметьте шапку, основную область
-           с календарём и слотами, подвал. -->
+        <header class="header">
+            <div class="container header__inner">
+                <div class="logo">СТРИЖЕНАТОРЫ</div>
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li><a href="#!" class="nav__link">Услуги</a></li>
+                        <li><a href="#!" class="nav__link">Галерея</a></li>
+                        <li><a href="#!" class="nav__link">Команда</a></li>
+                        <li><a href="#!" class="nav__link">Отзывы</a></li>
+                        <li><a href="#!" class="nav__link">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="progress-section">
+            <div class="container">
+                <div class="progress">
+                    <div class="progress__step completed">
+                        <span class="progress__circle">✓</span>
+                        <span class="progress__text">Мастер</span>
+                    </div>
+                    <div class="progress__step completed">
+                        <span class="progress__circle">✓</span>
+                        <span class="progress__text">Услуга</span>
+                    </div>
+                    <div class="progress__step active">
+                        <span class="progress__circle">3</span>
+                        <span class="progress__text">Дата и время</span>
+                    </div>
+                    <div class="progress__step">
+                        <span class="progress__circle">4</span>
+                        <span class="progress__text">Контакты</span>
+                    </div>
+                    <div class="progress__step">
+                        <span class="progress__circle">5</span>
+                        <span class="progress__text">Подтверждение</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main class="main">
+            <div class="container">
+                
+                <div class="main__top">
+                    <div class="page-title">
+                        <h1>ЗАПИСЬ</h1>
+                        <p class="page-subtitle">Выберите дату и время</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="radio">
+                            <input class="radio-input" type="radio" id="radio1" name="radio" checked>
+                        </div>
+                        <div class="service-card__info">
+                            <h3 class="service-card__title">Комплекс стрижка + борода</h3>
+                            <p class="service-card__duration">Длительность: 60 мин</p>
+                        </div>
+                        <div class="service-card__price">2 200 ₽</div>
+                    </div>
+                </div>
+
+                <div class="booking-grid">
+                    
+                    <section class="calendar">
+                        <div class="calendar__header">
+                            <h2 class="calendar__month">Октябрь 2026</h2>
+                            <div class="calendar__nav">
+                                <button class="calendar__arrow" aria-label="Предыдущий месяц">&#8249;</button>
+                                <button class="calendar__arrow" aria-label="Следующий месяц">&#8250;</button>
+                            </div>
+                        </div>
+                        
+                        <div class="calendar__weekdays">
+                            <div>Пн</div>
+                            <div>Вт</div>
+                            <div>Ср</div>
+                            <div>Чт</div>
+                            <div>Пт</div>
+                            <div>Сб</div>
+                            <div>Вс</div>
+                        </div>
+                        
+                        <div class="calendar__days">
+                            <button class="calendar__day past-day">28</button>
+                            <button class="calendar__day past-day">29</button>
+                            <button class="calendar__day past-day">30</button>
+                            <button class="calendar__day">1</button>
+                            <button class="calendar__day">2</button>
+                            <button class="calendar__day">3</button>
+                            <button class="calendar__day">4</button>
+                            <button class="calendar__day">5</button>
+                            <button class="calendar__day today">6</button>
+                            <button class="calendar__day">7</button>
+                            <button class="calendar__day">8</button>
+                            <button class="calendar__day">9</button>
+                            <button class="calendar__day">10</button>
+                            <button class="calendar__day">11</button>
+                            <button class="calendar__day">12</button>
+                            <button class="calendar__day">13</button>
+                            <button class="calendar__day">14</button>
+                            <button class="calendar__day selected">15</button>
+                            <button class="calendar__day">16</button>
+                            <button class="calendar__day">17</button>
+                            <button class="calendar__day">18</button>
+                            <button class="calendar__day">19</button>
+                            <button class="calendar__day">20</button>
+                            <button class="calendar__day">21</button>
+                            <button class="calendar__day">22</button>
+                            <button class="calendar__day">23</button>
+                            <button class="calendar__day">24</button>
+                            <button class="calendar__day">25</button>
+                            <button class="calendar__day">26</button>
+                            <button class="calendar__day">27</button>
+                            <button class="calendar__day">28</button>
+                            <button class="calendar__day">29</button>
+                            <button class="calendar__day">30</button>
+                            <button class="calendar__day">31</button>
+                            <button class="calendar__day">1</button>
+                        </div>
+                    </section>
+
+                    <section class="time-slots">
+                        <div class="time-slots__header">
+                            <h2 class="time-slots__title">Доступное время</h2>
+                            <p class="time-slots__subtitle">15 октября · Дмитрий Волков</p>
+                        </div>
+                        
+                        <div class="time-slots__grid">
+                            <button class="time-btn">10:00</button>
+                            <button class="time-btn">11:30</button>
+                            <button class="time-btn busy" disabled>13:00<br><span class="busy-text">Занято</span></button>
+                            <button class="time-btn selected">14:00</button>
+                            <button class="time-btn">15:30</button>
+                            <button class="time-btn">17:00</button>
+                            <button class="time-btn full-width">18:30</button>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- ИТОГИ И КНОПКИ -->
+                <div class="summary">
+                    <div class="summary__info">
+                        <h3 class="summary__title">ВЫБОР</h3>
+                        <p class="summary__datetime">15 октября, четверг · 14:00 - 15:00</p>
+                        <p class="summary__details">Дмитрий Волков · Комплекс Стрижка + борода · 60 минут · 2200 ₽</p>
+                    </div>
+                    <div class="summary__actions">
+                        <button class="btn btn-outline">
+                            <img src="./icons/arrow.svg">
+                            Назад
+                        </button>
+                        <button class="btn btn-primary">
+                            Далее
+                            <img src="./icons/arrow.svg">
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container footer__inner">
+                <div class="footer__col">
+                    <div class="footer__logo">СТРИЖЕНАТОРЫ</div>
+                    <p class="footer__desc">Барбершоп в центре Москвы. Мужская стрижка, борода, королевское бритье и уход за внешним видом.</p>
+                </div>
+                
+                <div class="footer__col">
+                    <h4 class="footer__title">КОНТАКТЫ</h4>
+                    <ul class="footer__list">
+                        <li><img src="./icons/map.svg"> ул. Садовая, 15, Москва</li>
+                        <li><img src="./icons/telephone.svg"> <a href="tel:+74951234567" class="footer__link">+7 (495) 123-45-67</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h4 class="footer__title">РЕЖИМ РАБОТЫ</h4>
+                    <ul class="footer__list">
+                        <li>Пн-Пт: 9:00 - 21:00</li>
+                        <li>Сб-Вс: 10:00 - 19:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="container footer__bottom">
+                <p>&copy; 2026. Все права защищены.</p>
+                <a href="#!" class="footer__link">Политика конфиденциальности</a>
+            </div>
+        </footer>
+
     </div>
   </body>
 </html>
