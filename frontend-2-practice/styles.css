@@ -373,6 +373,16 @@ button:focus-visible, a:focus-visible {
     transition: all 0.2s;
 }
 
+/* Дополнительные состояния для интерактивного календаря */
+.calendar__day.other-month {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.calendar__day:disabled {
+    pointer-events: none;
+}
+
 .calendar__day:hover:not(.past-day) {
     border-color: var(--black);
 }
@@ -401,6 +411,13 @@ button:focus-visible, a:focus-visible {
     padding: clamp(0.9375rem, 0.8102rem + 0.5093vw, 1.625rem);
     border-radius: 12px;
     border: 1px solid var(--border-color);
+}
+
+.time-slots__empty {
+    grid-column: 1 / -1;
+    color: var(--text-muted);
+    font-size: 1rem;
+    padding: 12px 0;
 }
 
 .time-slots__header {
